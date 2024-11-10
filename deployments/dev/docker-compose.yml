@@ -1,13 +1,30 @@
 version: '3.8'
 
+volumes:
+  db:
+
 services:
-  dev-app:
-    image: node:16.14.2
-    working_dir: /app
-    volumes:
-      - ../../:/app
-      - ../../node_modules:/app/node_modules
-      - ../../dist:/app/dist
-    command: bash -c "npm i --quiet --ignore-scripts && npm run start:dev"
+  postgresdb:
+    image: postgres
+    restart: unless-stopped
+    env_file: ./.env
+    environment:
+      - POSTGRES_USER=$POSTGRESDB_USER
+      - POSTGRES_PASSWORD=$POSTGRESDB_ROOT_PASSWORD
+      - POSTGRES_DB=$POSTGRESDB_DATABASE
     ports:
-      - "8080:8080"
+      - $POSTGRESDB_LOCAL_PORT:$POSTGRESDB_DOCKER_PORT
+    volumes:
+      - db:/var/lib/postgres
+  # dev-app:
+  #   depends_on:
+  #     - postgresdb
+  #   image: node:16.14.2
+  #   working_dir: /app
+  #   volumes:
+  #     - ../../:/app
+  #     - ../../node_modules:/app/node_modules
+  #     - ../../dist:/app/dist
+  #   command: bash -c "npm i --quiet --ignore-scripts && npm run start:dev"
+  #   ports:
+  #     - "8080:8080"
