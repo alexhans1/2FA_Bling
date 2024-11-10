@@ -1,0 +1,260 @@
+_type: export
+__export_format: 4
+__export_date: 2024-11-10T17:06:01.773Z
+__export_source: insomnia.desktop.app:v10.1.1
+resources:
+  - _id: req_867feee9cb20474f98d2af246e5cafc1
+    parentId: wrk_ce4e95e9758c4ea387b3fedf41e533d4
+    modified: 1731258191081
+    created: 1731163448660
+    url: localhost:8080/api/v1/auth/register
+    name: register
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Alex",
+        	"email": "test@test.de",
+        	"phone": "+49017612394323",
+        	"password": "%sfhH#74hshf39d&"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.1.1
+    authentication: {}
+    metaSortKey: -1731163448660
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_ce4e95e9758c4ea387b3fedf41e533d4
+    parentId: null
+    modified: 1731163442558
+    created: 1731163442558
+    name: Bling
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_6ddd4d057e5f4dd98acb88324454c038
+    parentId: wrk_ce4e95e9758c4ea387b3fedf41e533d4
+    modified: 1731258319766
+    created: 1731192527838
+    url: localhost:8080/api/v1/auth/password
+    name: change password
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"otp": "110316",
+        	"newPassword": "dsf7^YnB^G5D61&",
+        	"oldPassword": "%sfhH#74hshf39d&"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.1.1
+    authentication: {}
+    metaSortKey: -1730915005393.875
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_fc67a093caaf413caadf545d4b445935
+    parentId: wrk_ce4e95e9758c4ea387b3fedf41e533d4
+    modified: 1731258297926
+    created: 1731190042336
+    url: localhost:8080/api/v1/user
+    name: edit user
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "new@test.de",
+        	"name": "Thomas"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.1.1
+    authentication: {}
+    metaSortKey: -1730666562127.75
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_7ee626828ef945869423293265daca28
+    parentId: wrk_ce4e95e9758c4ea387b3fedf41e533d4
+    modified: 1731258208984
+    created: 1731178117991
+    url: localhost:8080/api/v1/auth/login
+    name: login
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "test@test.de",
+        	"password": "%sfhH#74hshf39d&"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.1.1
+    authentication: {}
+    metaSortKey: -1730169675595.5
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_012fad332a694502b0268b948c48ab07
+    parentId: wrk_ce4e95e9758c4ea387b3fedf41e533d4
+    modified: 1731258226307
+    created: 1731179116339
+    url: localhost:8080/api/v1/auth/confirm-otp
+    name: confirmOtp
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"otp": "831437"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.1.1
+    authentication: {}
+    metaSortKey: -1729672789063.25
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d29ddf015df4457196c2dcd335b7e0d3
+    parentId: wrk_ce4e95e9758c4ea387b3fedf41e533d4
+    modified: 1731188412390
+    created: 1731188396731
+    url: localhost:8080/api/v1/auth/logout
+    name: logout
+    description: ""
+    method: POST
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.1.1
+    authentication: {}
+    metaSortKey: -1729424345797.125
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_32a8f86b217541b99144a6f0d2a12428
+    parentId: wrk_ce4e95e9758c4ea387b3fedf41e533d4
+    modified: 1731193114929
+    created: 1731193111048
+    url: localhost:8080/api/v1/auth/otp
+    name: request OTP
+    description: ""
+    method: POST
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/10.1.1
+    authentication: {}
+    metaSortKey: -1729300124164.0625
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_a7960847b554e8cb4455f866a2f4382f0529d12b
+    parentId: wrk_ce4e95e9758c4ea387b3fedf41e533d4
+    modified: 1731163442561
+    created: 1731163442561
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1731163442561
+    _type: environment
+  - _id: jar_a7960847b554e8cb4455f866a2f4382f0529d12b
+    parentId: wrk_ce4e95e9758c4ea387b3fedf41e533d4
+    modified: 1731258227072
+    created: 1731163442562
+    name: Default Jar
+    cookies:
+      - key: OTP_SESSION
+        expires: 1970-01-01T00:00:00.000Z
+        domain: localhost
+        path: /
+        hostOnly: true
+        creation: 2024-11-10T09:43:23.972Z
+        lastAccessed: 2024-11-10T17:03:47.072Z
+        id: 26d7a382-dbdf-4d17-b5f1-b4dc330acb3a
+      - key: ACCESS_TOKEN
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJlODQ0ZTE2My1jN2QyLTQ5NDAtYmIxOS1kZTBiMDk0NGZjN2QiLCJpYXQiOjE3MzEyNTgyMjcsImV4cCI6MTczMTI2MTgyN30.tluyJK27s_gu57m0g5MukXYXRduySFPAl5_9rEaYvxw
+        domain: localhost
+        path: /
+        secure: true
+        httpOnly: true
+        hostOnly: true
+        creation: 2024-11-10T09:49:35.524Z
+        lastAccessed: 2024-11-10T17:03:47.071Z
+        sameSite: strict
+        id: 0bf696ff-7394-482f-b184-5a8cf034fc7f
+    _type: cookie_jar

@@ -23,22 +23,44 @@ docker compose --file deployments/dev/docker-compose.yml up -d
 yarn start
 ```
 
-## 
+## Test the endpoints
 
-## Threads
+1. Import collection (./insomnia-collection.yaml) to insomnia  
+(If you don't have insomnia, give me a call and I can send you the CURLs)
+
+2. Create a new user
+3. Login  
+Check that you now have an OTP_SESSION cookie with a JWT  
+Since I didn't create Twilio account, I just logged the OTP in the console.
+
+4. Confirm OTP  
+Grab OTP from console and paste it to the request body  
+You should now have an ACCESS_TOKEN cookie
+
+5. Edit user  
+Only works with valid access token
+
+6. Change password flow:  
+Only works with valid access token
+    1. Request OTP  
+    Once again the OTP is logged in your console  
+    2. Paste the OTP to the change password request
+
+## Consideration of threads
 | Thread | Mitigation |
 | ------ | ----------|
-| unauthorized access to the database | enable CloudTrail to track DB and service access |
+| unauthorized access to the database | disable production access to the DB, store secrets in AWS secrets manager and enable CloudTrail to track DB and Secret Manager access |
 | SQL injection | Use sequelize |
 | DoS | Use AWS WAF |
 | Brute force password hacking | Strong password policy and rate limiting / throttling | 
+| Cross-Site Scripting (XSS) | strict input validation |
 
-## Left for production:
-- clean up expired OTPs
+## Left to do for production use:
+- clean up expired OTPs via cron job or switch to DynamoDB / Redis and set TTL
 - enable twilio
-- add proper logger for production logging
-- use API Gateway / rate limiter
-- unit tests
+- add proper logger for production logs (including Correlation ID)
+- use rate limiter / throttler
+- add unit tests
   - for the individual functions in the services
 - integration tests
   - add tests that spin up a postgres instance and test the endpoints against it like so:
@@ -47,10 +69,8 @@ yarn start
     3. should verify password and trigger OTP
     4. should fail if password or email is incorrect
     5. should verify OTP_SESSION cookie and 
-- handle concurrency
 - don't keep secrets in .env file but rather fetch them from AWS Secrets Manager
   - use staging secrets in development
-- thread modelling
 - add monitors & analytics
   - for unexpected errors, CPU, memory, disk space, DB response times
 - add healthcheck endpoint
